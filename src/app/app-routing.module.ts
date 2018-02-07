@@ -6,6 +6,8 @@ import { ParkingPlaceComponent } from './components/parking-place/parking-place.
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: CityComponent },
+  { path: 'cities', component: CityComponent },
   { path: 'city/:id/parking_places', component: ParkingPlaceComponent }
 ];
 
