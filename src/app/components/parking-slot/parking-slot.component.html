@@ -1,5 +1,20 @@
 <ul class="parkingSlots">
-  <li *ngFor="let parkingSlot of parkingSlots">
+  <li *ngFor="let parkingSlot of parkingSlots" (click)="openParkingTicketForm(parkingSlot);">
     <span class="badge">{{parkingSlot.slot_no}} </span>Book your slot
   </li>
 </ul>
+
+
+<div *ngIf="selectedParkingSlot">
+  <h2>Book Your Parking Slot</h2>
+  <div>
+    <label>Slot no:
+      <input #slotNo value="{{selectedParkingSlot.slot_no}}" />
+    </label>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(slotNo.value); slotNo.value=''">
+      add
+    </button>
+  </div>
+</div>
+<button (click)="goBack()">go back</button>

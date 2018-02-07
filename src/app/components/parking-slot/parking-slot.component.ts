@@ -13,7 +13,8 @@ import { PARKING_PLACES } from '../../mocks/mock-parking-places';
   styleUrls: ['./parking-slot.component.css']
 })
 export class ParkingSlotComponent implements OnInit {
-  parkingSlots:  ParkingSlot[];
+  parkingSlots: ParkingSlot[];
+  selectedParkingSlot: ParkingSlot;
   constructor(
     private route: ActivatedRoute,
     private location: Location
@@ -25,8 +26,17 @@ export class ParkingSlotComponent implements OnInit {
     console.log(this.parkingSlots);
   }
 
+  openParkingTicketForm(parkingSlot: ParkingSlot) {
+    console.log(parkingSlot, 'called');
+    this.selectedParkingSlot = parkingSlot;
+  }
+
   getParinkSlotsofParkingPlace(id: number): ParkingSlot[] {
-   return PARKING_SLOTS.filter(parkingSlots => parkingSlots.parking_place_id === id);
+    return PARKING_SLOTS.filter(parkingSlots => parkingSlots.parking_place_id === id);
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
