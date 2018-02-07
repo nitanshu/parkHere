@@ -7,7 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CityComponent } from './components/city/city.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ParkingPlaceComponent } from './parking-place/parking-place.component';
+import { ParkingPlaceComponent } from './components/parking-place/parking-place.component';
 
 
 @NgModule({
