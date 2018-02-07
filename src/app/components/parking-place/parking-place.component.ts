@@ -11,7 +11,8 @@ import { PARKING_PLACES } from '../../mocks/mock-parking-places';
   styleUrls: ['./parking-place.component.css']
 })
 export class ParkingPlaceComponent implements OnInit {
-  parkingPlace: ParkingPlace;
+  parkingPlaces: ParkingPlace[];
+
   constructor(
     private route: ActivatedRoute,
     private location: Location
@@ -19,11 +20,11 @@ export class ParkingPlaceComponent implements OnInit {
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-   this.parkingPlace = this.getparkingPlaceofCity(id);
-   console.log(this.parkingPlace);
+    this.parkingPlaces = this.getparkingPlacesofCity(id);
+    console.log(this.parkingPlaces);
   }
 
-  getparkingPlaceofCity(id: number): ParkingPlace {
-  return PARKING_PLACES.find(parkingPlace => parkingPlace.city_id === id);
+  getparkingPlacesofCity(id: number): ParkingPlace[] {
+    return PARKING_PLACES.filter(parkingPlaces => parkingPlaces.city_id === id);
   }
 }
