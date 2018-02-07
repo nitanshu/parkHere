@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CityComponent } from './components/city/city.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ParkingPlaceComponent } from './components/parking-place/parking-place.component';
+import { ParkingSlotComponent } from './components/parking-slot/parking-slot.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ParkingPlaceComponent } from './components/parking-place/parking-place.
     AppComponent,
     CityComponent,
     DashboardComponent,
-    ParkingPlaceComponent
+    ParkingPlaceComponent,
+    ParkingSlotComponent
   ],
   imports: [
     BrowserModule,

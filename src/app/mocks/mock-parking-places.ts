@@ -11,6 +11,6 @@ export const PARKING_PLACES: ParkingPlace[] = [
     {id: 8, place: 'Anand Vihar', available: true, total_slots: 10, city_id: 3},
     {id: 9, place: 'Green Park', available: true, total_slots: 10, city_id: 3},
     {id: 10, place: 'Pilot Station', available: true, total_slots: 10, city_id: 4},
-    {id: 11, place: 'Mill Road', available: true, total_slots: 10, city_id: 4},
-    {id: 12, place: 'Oil corporation', available: true, total_slots: 10, city_id: 4},
+    {id: 11, place: 'Mill Road', available: false, total_slots: 10, city_id: 4},
+    {id: 12, place: 'Oil corporation', available: false, total_slots: 10, city_id: 4},
 ];
