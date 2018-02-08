@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from 'selenium-webdriver/http';
 
 import { AppComponent } from './app.component';
 import { CityComponent } from './components/city/city.component';
@@ -10,6 +12,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ParkingPlaceComponent } from './components/parking-place/parking-place.component';
 import { ParkingSlotComponent } from './components/parking-slot/parking-slot.component';
 import { ParkingTicketComponent } from './components/parking-ticket/parking-ticket.component';
+
+import { CityService } from './services/city.service';
 import { ParkingTicketService } from './services/parking-ticket.service';
 
 
@@ -25,9 +29,10 @@ import { ParkingTicketService } from './services/parking-ticket.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [ParkingTicketService],
+  providers: [ParkingTicketService, CityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
