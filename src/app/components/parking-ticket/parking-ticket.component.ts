@@ -18,15 +18,20 @@ export class ParkingTicketComponent implements OnInit {
   constructor(private parkingTicketService: ParkingTicketService) { }
 
   ngOnInit() {
+    this.getParkingTickets();
   }
+
+  getParkingTickets() {
+    this.parkingTicketService.getAllParkingTickets().
+    subscribe(parkingTickets => this.parkingTickets = parkingTickets);
+  }
+
   add(parkingSlot: string, parking_slot_id: number, in_time: string, out_time: string, ticket_price: number): void {
     in_time = in_time.trim();
     out_time = out_time.trim();
     if (!in_time) { return; }
     this.parkingTicketService.bookTicket({ parking_slot_id, in_time, out_time, ticket_price } as ParkingTicket)
-      .subscribe(parkingTicket => {
-        this.parkingTickets.push(parkingTicket);
-      });
+      .subscribe(parkingTicket => this.parkingTickets);
   }
 }
 

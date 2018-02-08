@@ -17,8 +17,12 @@ export class ParkingTicketService {
   constructor(
     private http: HttpClient
   ) { }
- bookTicket(parkingTicket: ParkingTicket): Observable<ParkingTicket> {
+  getAllParkingTickets(): Observable<ParkingTicket[]> {
+    return this.http.get<ParkingTicket[]>(this.parkingTicketUrl);
+  }
+  bookTicket(parkingTicket: ParkingTicket): Observable<ParkingTicket> {
    console.log('parking ticket object', parkingTicket);
    return this.http.post<ParkingTicket>(this.parkingTicketUrl, parkingTicket, httpOptions);
  }
+
 }
