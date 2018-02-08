@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { ParkingSlot } from '../../models/parking-slot';
+import { ParkingSlotService } from '../../services/parking-slot.service';
 import { PARKING_SLOTS } from '../../mocks/mock-parking-slots';
 import { PARKING_PLACES } from '../../mocks/mock-parking-places';
 
@@ -17,22 +18,26 @@ export class ParkingSlotComponent implements OnInit {
   selectedParkingSlot: ParkingSlot;
   constructor(
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private parkingSlotService: ParkingSlotService
   ) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.parkingSlots = this.getParinkSlotsofParkingPlace(id);
-    console.log(this.parkingSlots);
+    this.getParinkSlotsofParkingPlace(id);
+  }
+
+  getParinkSlotsofParkingPlace(id: number) {
+    this.parkingSlotService.getParkingSlots().
+    subscribe(parkingSlot => (
+      this.parkingSlots = (parkingSlot.filter(p => p.parking_place_id === id))
+    ));
+    // return PARKING_SLOTS.filter(parkingSlots => parkingSlots.parking_place_id === id);
   }
 
   openParkingTicketForm(parkingSlot: ParkingSlot) {
     console.log(parkingSlot, 'called');
     this.selectedParkingSlot = parkingSlot;
-  }
-
-  getParinkSlotsofParkingPlace(id: number): ParkingSlot[] {
-    return PARKING_SLOTS.filter(parkingSlots => parkingSlots.parking_place_id === id);
   }
 
   goBack(): void {

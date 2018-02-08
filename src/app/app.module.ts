@@ -15,6 +15,7 @@ import { ParkingTicketComponent } from './components/parking-ticket/parking-tick
 
 import { CityService } from './services/city.service';
 import { ParkingPlaceService } from './services/parking-place.service';
+import { ParkingSlotService } from './services/parking-slot.service';
 import { ParkingTicketService } from './services/parking-ticket.service';
 
 
@@ -34,7 +35,7 @@ import { ParkingTicketService } from './services/parking-ticket.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [CityService, ParkingPlaceService, ParkingTicketService],
+  providers: [CityService, ParkingPlaceService, ParkingSlotService, ParkingTicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
