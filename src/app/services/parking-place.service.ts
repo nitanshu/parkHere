@@ -14,14 +14,14 @@ const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/js
 @Injectable()
 
 export class ParkingPlaceService {
-constructor(
-    private http: HttpClient
-) {}
+    constructor(
+        private http: HttpClient
+    ) { }
 
-private parkingPlaceUrl = 'http://localhost:3000/cities';
+    private parkingPlaceUrl = 'http://localhost:3000/cities';
 
-getParkingPlaces(id: number): Observable<ParkingPlace[]> {
-    const url = `${this.parkingPlaceUrl}/${id}/parking_places`;
-    return this.http.get<ParkingPlace[]>(url);
-}
+    getParkingPlaces(id: number): Observable<ParkingPlace[]> {
+        const url = `${this.parkingPlaceUrl}/${id}/parking_places`;
+        return this.http.get<ParkingPlace[]>(url);
+    }
 }

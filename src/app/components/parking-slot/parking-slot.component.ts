@@ -29,10 +29,9 @@ export class ParkingSlotComponent implements OnInit {
 
   getParinkSlotsofParkingPlace(id: number) {
     this.parkingSlotService.getParkingSlots().
-    subscribe(parkingSlot => (
-      this.parkingSlots = (parkingSlot.filter(p => p.parking_place_id === id))
-    ));
-    // return PARKING_SLOTS.filter(parkingSlots => parkingSlots.parking_place_id === id);
+      subscribe(parkingSlot => (
+        this.parkingSlots = (parkingSlot.filter(p => p.parking_place_id === id))
+      ));
   }
 
   openParkingTicketForm(parkingSlot: ParkingSlot) {
