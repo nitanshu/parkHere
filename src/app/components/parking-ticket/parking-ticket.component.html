@@ -1,3 +1,21 @@
-<p>
-  parking-ticket works!
-</p>
+<div *ngIf="parkingSlot">
+  <h2>Book Your Parking Ticket</h2>
+  <div>
+    <label>Slot no:
+      <input #slotNo value="{{parkingSlot.slot_no}}" disabled/>
+    </label><br>
+    <label>InTime
+      <input #inTime value="" />
+    </label><br>
+    <label>OutTime
+      <input #outTime value="" />
+    </label><br>
+    <label>Ticket Charges
+      <input #ticketPrice value="" />
+    </label><br>
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button (click)="add(slotNo.value); slotNo.value=''">
+      Book Your Ticket
+    </button>
+  </div>
+</div>

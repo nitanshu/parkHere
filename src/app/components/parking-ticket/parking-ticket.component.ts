@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
+import { ParkingSlot } from '../../models/parking-slot';
 import { ParkingTicket } from '../../models/parking-ticket';
 
 @Component({
@@ -9,6 +10,7 @@ import { ParkingTicket } from '../../models/parking-ticket';
 })
 
 export class ParkingTicketComponent implements OnInit {
+  @Input() parkingSlot: ParkingSlot;
 
   constructor() { }
 
