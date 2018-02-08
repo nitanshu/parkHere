@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
+import { ParkingPlaceService } from '../../services/parking-place.service';
 import { ParkingPlace } from '../../models/parking-place';
 import { PARKING_PLACES } from '../../mocks/mock-parking-places';
 
@@ -15,16 +16,17 @@ export class ParkingPlaceComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private location: Location
+    private location: Location,
+    private parkingPlaceService: ParkingPlaceService
   ) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.parkingPlaces = this.getparkingPlacesofCity(id);
-    console.log(this.parkingPlaces);
+    this.getparkingPlacesofCity(id);
   }
 
-  getparkingPlacesofCity(id: number): ParkingPlace[] {
-    return PARKING_PLACES.filter(parkingPlaces => parkingPlaces.city_id === id);
+  getparkingPlacesofCity(id): void {
+   this.parkingPlaceService.getParkingPlaces(id).subscribe(
+     parkingPlaces => this.parkingPlaces = parkingPlaces.filter(p => p.city_id === id));
   }
 }

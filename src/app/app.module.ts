@@ -14,7 +14,9 @@ import { ParkingSlotComponent } from './components/parking-slot/parking-slot.com
 import { ParkingTicketComponent } from './components/parking-ticket/parking-ticket.component';
 
 import { CityService } from './services/city.service';
+import { ParkingPlaceService } from './services/parking-place.service';
 import { ParkingTicketService } from './services/parking-ticket.service';
+
 
 
 @NgModule({
@@ -32,7 +34,7 @@ import { ParkingTicketService } from './services/parking-ticket.service';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ParkingTicketService, CityService],
+  providers: [CityService, ParkingPlaceService, ParkingTicketService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
