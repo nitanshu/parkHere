@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { City } from '../../models/city';
 import { CityService } from '../../services/city.service';
-import { CITIES } from '../../mocks/mock-cities';
 
 @Component({
   selector: 'app-city',

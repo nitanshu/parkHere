@@ -4,7 +4,6 @@ import { Location } from '@angular/common';
 
 import { ParkingPlaceService } from '../../services/parking-place.service';
 import { ParkingPlace } from '../../models/parking-place';
-import { PARKING_PLACES } from '../../mocks/mock-parking-places';
 
 @Component({
   selector: 'app-parking-place',

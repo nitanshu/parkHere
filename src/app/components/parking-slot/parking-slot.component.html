@@ -6,14 +6,14 @@
 
 
 <div *ngIf="selectedParkingSlot">
-  <h2>Book Your Parking Slot</h2>
+  <h2>Book Your Parking Ticket</h2>
   <div>
     <label>Slot no:
       <input #slotNo value="{{selectedParkingSlot.slot_no}}" />
     </label>
     <!-- (click) passes input value to add() and then clears the input -->
     <button (click)="add(slotNo.value); slotNo.value=''">
-      add
+      Book Your Ticket
     </button>
   </div>
 </div>
