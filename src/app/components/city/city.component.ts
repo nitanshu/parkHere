@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { City } from '../../models/city';
+import { CityService } from '../../services/city.service';
 import { CITIES } from '../../mocks/mock-cities';
 
 @Component({
@@ -10,14 +11,14 @@ import { CITIES } from '../../mocks/mock-cities';
 })
 export class CityComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cityService: CityService) { }
   cities: City[];
 
   ngOnInit() {
-    this.cities = this.getCities();
+    this.getCities();
   }
 
-  getCities(): City[] {
-    return CITIES;
+  getCities(): void {
+    this.cityService.getCities().subscribe(cities => this.cities = cities);
   }
 }
