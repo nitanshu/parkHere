@@ -14,7 +14,7 @@
       <input #ticketPrice value="" />
     </label><br>
     <!-- (click) passes input value to add() and then clears the input -->
-    <button (click)="add(slotNo.value); slotNo.value=''">
+    <button (click)="add(parkingSlot.value, parkingSlot.id, inTime.value, outTime.value, ticketPrice.value); parkingSlot.value=''">
       Book Your Ticket
     </button>
   </div>
