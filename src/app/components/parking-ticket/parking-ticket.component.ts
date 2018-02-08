@@ -31,6 +31,7 @@ export class ParkingTicketComponent implements OnInit {
     if (!in_time) { return; }
     this.parkingTicketService.bookTicket({ parking_slot_id, in_time, out_time, ticket_price } as ParkingTicket)
       .subscribe(parkingTicket => this.parkingTickets);
+      alert('Your ticket is booked');
   }
 }
 
